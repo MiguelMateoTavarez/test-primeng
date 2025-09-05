@@ -17,6 +17,7 @@ import { DatePicker } from 'primeng/datepicker';
 import { Fluid } from 'primeng/fluid';
 import { ToggleSwitchModule } from 'primeng/toggleswitch';
 import { SelectButtonModule } from 'primeng/selectbutton';
+import { TextareaModule } from 'primeng/textarea';
 
 import { FakeStoreApiService } from '../../../../shared/services/fakestore-api.service';
 import { FakeStoreProductsResponse } from '../../../../shared/interfaces/fakestore-products-response.interface';
@@ -43,6 +44,7 @@ interface Item {
     DatePicker,
     ToggleSwitchModule,
     SelectButtonModule,
+    TextareaModule
   ],
   templateUrl: './forms-page.component.html',
   styleUrl: './forms-page.component.scss',
@@ -68,7 +70,8 @@ export class FormsPageComponent implements OnInit {
     time12: [''],
     time24: [''],
     remember: [false],
-    time: [0]
+    time: [0],
+    content: ['']
   });
 
   ngOnInit(): void {

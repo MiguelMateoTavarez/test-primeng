@@ -35,8 +35,14 @@
       <p-fluid>
         <p-float-label for="remindme">Remind me</p-float-label>
         <p-toggleSwitch inputId="remindme" />
-        <p-selectButton [options]="timeOptions" size="small" formControlName="time" optionLabel="label" optionValue="value" />
+        <p-selectButton [options]="timeOptions" size="small" formControlName="time" optionLabel="label"
+          optionValue="value" />
       </p-fluid>
+      <p-floatlabel variant="on">
+        <textarea pTextarea id="over_label" formControlName="content" rows="5" cols="60" style="resize: horizontal"
+          class="h-full"></textarea>
+        <label for="in_label">Comment</label>
+      </p-floatlabel>
     </section>
     <p-button [disabled]="productForm.hasError" type="submit" size="small" label="Submit" />
   </form>
