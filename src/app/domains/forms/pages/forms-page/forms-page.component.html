@@ -5,17 +5,19 @@
 <div class="card flex justify-center">
   <form class="flex flex-col gap-4" [formGroup]="productForm" (submit)="handleSubmit()">
     <section class="flex flex-col gap-4">
-      <p-float-label variant="on">
-        <p-autoComplete inputId="product" formControlName="productId" variant="filled" size="small" optionLabel="title"
-          [invalid]="isInvalid('productId')" [dropdown]="true" [suggestions]="filteredItems()" [forceSelection]="true"
-          (completeMethod)="filterItems($event)" />
-        <label for="product">Products - Force selection</label>
-      </p-float-label>
-      @if (isInvalid('productId')) {
-      <p-message severity="error" size="small" variant="simple">
-        Product is required
-      </p-message>
-      }
+      <p-fluid>
+        <p-float-label variant="on">
+          <p-autoComplete inputId="product" formControlName="productId" variant="filled" size="small" optionLabel="title"
+            [invalid]="isInvalid('productId')" [dropdown]="true" [suggestions]="filteredItems()" [forceSelection]="true"
+            (completeMethod)="filterItems($event)" />
+          <label for="product">Products - Force selection</label>
+        </p-float-label>
+        @if (isInvalid('productId')) {
+        <p-message severity="error" size="small" variant="simple">
+          Product is required
+        </p-message>
+        }
+      </p-fluid>
       <p-fluid class="flex gap-4">
         <p-float-label variant="on">
           <div class="flex-auto">
@@ -29,6 +31,10 @@
           size="small" [showTime]="true" [hourFormat]="'24'" />
           <label for="calendar-24h" class="font-bold block mb-2"> 24h Format </label>
         </p-float-label>
+      </p-fluid>
+      <p-fluid>
+        <p-float-label for="remindme">Remind me</p-float-label>
+        <p-toggleSwitch inputId="remindme"/>
       </p-fluid>
     </section>
     <p-button type="submit" size="small" label="Submit" />

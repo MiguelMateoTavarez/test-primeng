@@ -8,12 +8,14 @@ import {
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { map } from 'rxjs';
 
+import { ToastModule } from 'primeng/toast';
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { FloatLabel } from 'primeng/floatlabel';
 import { ButtonModule } from 'primeng/button';
 import { Message } from 'primeng/message';
 import { DatePicker } from 'primeng/datepicker';
 import { Fluid } from 'primeng/fluid';
+import { ToggleSwitchModule } from 'primeng/toggleswitch';
 
 import { FakeStoreApiService } from '../../../../shared/services/fakestore-api.service';
 import { FakeStoreProductsResponse } from '../../../../shared/interfaces/fakestore-products-response.interface';
@@ -31,12 +33,14 @@ interface Item {
   selector: 'app-forms-page',
   imports: [
     ReactiveFormsModule,
+    ToastModule,
     AutoCompleteModule,
+    Fluid,
     FloatLabel,
-    ButtonModule,
     Message,
+    ButtonModule,
     DatePicker,
-    Fluid
+    ToggleSwitchModule,
   ],
   templateUrl: './forms-page.component.html',
   styleUrl: './forms-page.component.scss',
@@ -54,7 +58,8 @@ export class FormsPageComponent implements OnInit {
   productForm = this.formBuilder.group({
     productId: ['', [Validators.required]],
     time12: [''],
-    time24: ['']
+    time24: [''],
+    remember: [false],
   });
 
   ngOnInit(): void {
