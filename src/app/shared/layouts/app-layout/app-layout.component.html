@@ -1,4 +1,12 @@
-<p-menubar [model]="items" />
-<main class="p-4">
-  <router-outlet/>
-</main>
+<section class="h-full">
+  <article class="h-full w-full flex">
+    <app-sidebar [menuItems]="menuItems" />
+    <section class="w-full">
+      <p-menubar class="w-full p-0" [baseZIndex]="2000">
+      </p-menubar>
+      <main class="w-full h-full p-4">
+        <router-outlet />
+      </main>
+    </section>
+  </article>
+</section>

@@ -1,0 +1,34 @@
+<div class="h-full card flex justify-center bg-gray-900">
+  <aside
+    styleClass="w-full md:w-[3rem]">
+    <article class="flex flex-col justify-center" #headless>
+      <p-button
+        class="flex justify-center"
+        (click)="visible = true"
+        size="small"
+        icon="pi pi-bars"
+      />
+      <div class="overflow-x-hidden flex items-center justify-between pt-4 shrink-0">
+        <span class="flex justify-center w-full items-center gap-2">
+          <img width="50" src="imgs/compas.svg" alt="No image">
+        </span>
+        <span>
+        </span>
+      </div>
+      <div class="overflow-y-auto">
+        <ul class="list-none p-2 m-0 overflow-hidden">
+          @for (menuItem of menuItems(); track menuItem.url) {
+            <li class="flex justify-center">
+              <a pRipple class="flex items-center cursor-pointer p-2 rounded-border text-surface-700 dark:text-surface-100 hover:bg-surface-100 dark:hover:bg-surface-700 duration-150 transition-colors p-ripple">
+                <i
+                  class="pi"
+                  [ngClass]="menuItem.icon"
+                ></i>
+              </a>
+            </li>
+          }
+        </ul>
+      </div>
+    </article>
+  </aside>
+</div>
