@@ -7,9 +7,9 @@
     <section class="flex flex-col gap-4">
       <p-fluid>
         <p-float-label variant="on">
-          <p-autoComplete inputId="product" formControlName="productId" variant="filled" size="small" optionLabel="title"
-            [invalid]="isInvalid('productId')" [dropdown]="true" [suggestions]="filteredItems()" [forceSelection]="true"
-            (completeMethod)="filterItems($event)" />
+          <p-autoComplete inputId="product" formControlName="productId" variant="filled" size="small"
+            optionLabel="title" [invalid]="isInvalid('productId')" [dropdown]="true" [suggestions]="filteredItems()"
+            [forceSelection]="true" (completeMethod)="filterItems($event)" />
           <label for="product">Products - Force selection</label>
         </p-float-label>
         @if (isInvalid('productId')) {
@@ -21,22 +21,23 @@
       <p-fluid class="flex gap-4">
         <p-float-label variant="on">
           <div class="flex-auto">
-            <p-datepicker inputId="calendar-12h" showIcon formControlName="time12" dateFormat="dd/mm/yyyy" variant="filled"
-              size="small" [showTime]="true" [hourFormat]="'12'" />
+            <p-datepicker inputId="calendar-12h" showIcon formControlName="time12" dateFormat="dd/mm/yyyy"
+              variant="filled" size="small" [showTime]="true" [hourFormat]="'12'" />
             <label for="calendar-12h" class="font-bold block mb-2"> 12h Format </label>
           </div>
         </p-float-label>
         <p-float-label variant="on">
-          <p-datepicker inputId="calendar-24h" showIcon formControlName="time24" dateFormat="dd/mm/yyyy" variant="filled"
-          size="small" [showTime]="true" [hourFormat]="'24'" />
+          <p-datepicker inputId="calendar-24h" showIcon formControlName="time24" dateFormat="dd/mm/yyyy"
+            variant="filled" size="small" [showTime]="true" [hourFormat]="'24'" />
           <label for="calendar-24h" class="font-bold block mb-2"> 24h Format </label>
         </p-float-label>
       </p-fluid>
       <p-fluid>
         <p-float-label for="remindme">Remind me</p-float-label>
-        <p-toggleSwitch inputId="remindme"/>
+        <p-toggleSwitch inputId="remindme" />
+        <p-selectButton [options]="timeOptions" size="small" formControlName="time" optionLabel="label" optionValue="value" />
       </p-fluid>
     </section>
-    <p-button type="submit" size="small" label="Submit" />
+    <p-button [disabled]="productForm.hasError" type="submit" size="small" label="Submit" />
   </form>
 </div>

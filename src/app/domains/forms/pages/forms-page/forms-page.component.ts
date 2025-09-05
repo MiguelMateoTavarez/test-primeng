@@ -16,6 +16,7 @@ import { Message } from 'primeng/message';
 import { DatePicker } from 'primeng/datepicker';
 import { Fluid } from 'primeng/fluid';
 import { ToggleSwitchModule } from 'primeng/toggleswitch';
+import { SelectButtonModule } from 'primeng/selectbutton';
 
 import { FakeStoreApiService } from '../../../../shared/services/fakestore-api.service';
 import { FakeStoreProductsResponse } from '../../../../shared/interfaces/fakestore-products-response.interface';
@@ -41,6 +42,7 @@ interface Item {
     ButtonModule,
     DatePicker,
     ToggleSwitchModule,
+    SelectButtonModule,
   ],
   templateUrl: './forms-page.component.html',
   styleUrl: './forms-page.component.scss',
@@ -55,11 +57,18 @@ export class FormsPageComponent implements OnInit {
   items = signal<Item[]>([]);
   filteredItems = signal<Item[]>([]);
 
+  timeOptions: any[] = [
+    { label: '30m', value: 30 },
+    { label: '1h', value: 60 },
+    { label: '2h', value: 120 },
+  ];
+
   productForm = this.formBuilder.group({
     productId: ['', [Validators.required]],
     time12: [''],
     time24: [''],
     remember: [false],
+    time: [0]
   });
 
   ngOnInit(): void {
