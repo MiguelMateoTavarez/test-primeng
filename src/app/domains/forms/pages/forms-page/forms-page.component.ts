@@ -50,7 +50,7 @@ interface Item {
   styleUrl: './forms-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class FormsPageComponent implements OnInit {
+export default class FormsPageComponent implements OnInit {
   private readonly formBuilder = inject(FormBuilder);
   private readonly fakeStoreApiService = inject(FakeStoreApiService);
 

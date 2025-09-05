@@ -1,14 +1,14 @@
 import { Routes } from '@angular/router';
-import { FormsPageComponent } from './pages/forms-page/forms-page.component';
+import FormsPageComponent from './pages/forms-page/forms-page.component';
 
 export const formRoutes: Routes = [
   {
-    path: 'forms',
+    path: '',
     component: FormsPageComponent
   },
   {
     path: '**',
-    redirectTo: 'forms'
+    redirectTo: ''
   }
 ];
 

@@ -1,0 +1,38 @@
+<div class="card">
+    <p-table #dt1 [value]="products" dataKey="id" [rows]="10" [rowsPerPageOptions]="[10, 25, 50]" [loading]="loading" [paginator]="true" [globalFilterFields]="['title', 'category', 'price']" showGridlines>
+        <ng-template #caption>
+            <div class="flex">
+                <p-button label="Clear" [outlined]="true" icon="pi pi-filter-slash" (click)="clear(dt1)" />
+                <p-iconfield iconPosition="left" class="ml-auto">
+                    <p-inputicon>
+                        <i class="pi pi-search"></i>
+                    </p-inputicon>
+                    <input pInputText type="text" (input)="dt1.filterGlobal($event.target.value, 'contains')" placeholder="Search keyword" />
+                </p-iconfield>
+            </div>
+        </ng-template>
+        <ng-template #header>
+            <tr>
+                <th style="min-width:10rem">Image</th>
+                <th style="min-width:15rem">Title</th>
+                <th style="min-width:10rem">Price</th>
+                <th style="min-width:15rem">Category</th>
+                <th style="min-width:10rem">Rating</th>
+            </tr>
+        </ng-template>
+        <ng-template #body let-product>
+            <tr>
+                <td><img [src]="product.image" [alt]="product.title" width="50" class="shadow-4" /></td>
+                <td>{{ product.title }}</td>
+                <td>{{ product.price | currency: 'USD' }}</td>
+                <td>{{ product.category }}</td>
+                <td><p-rating [(ngModel)]="product.rating.rate" [readonly]="true" /> ({{product.rating.count}})</td>
+            </tr>
+        </ng-template>
+        <ng-template #emptymessage>
+            <tr>
+                <td colspan="5">No products found.</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

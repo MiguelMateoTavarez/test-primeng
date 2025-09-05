@@ -14,6 +14,11 @@ export class AppLayoutComponent {
   items: MenuItem[] = [
     {
       label: 'Form',
+      url: 'forms'
+    },
+    {
+      label: 'Table',
+      url: 'tables'
     }
   ];
 }

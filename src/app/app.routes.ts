@@ -3,12 +3,17 @@ import { AppLayoutComponent } from './shared/layouts/app-layout/app-layout.compo
 
 export const routes: Routes = [
   {
-    path: '',
+    path: 'forms',
     component: AppLayoutComponent,
-    loadChildren: () => import('./domains/forms/forms.routes')
+    loadChildren: () => import('./domains/forms/forms.routes'),
+  },
+  {
+    path: 'tables',
+    component: AppLayoutComponent,
+    loadChildren: () => import('./domains/tables/tables.routes'),
   },
   {
     path: '**',
-    redirectTo: ''
-  }
+    redirectTo: 'forms',
+  },
 ];
