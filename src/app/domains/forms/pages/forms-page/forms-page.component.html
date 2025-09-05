@@ -3,10 +3,34 @@
 <h2 class="text-xl">Dropdown way</h2>
 
 <div class="card flex justify-center">
-  <p-autoComplete
-    [(ngModel)]="value"
-    [dropdown]="true"
-    [suggestions]="items"
-    (completeMethod)="search($event)"
-  />
+  <form class="flex flex-col gap-4" [formGroup]="productForm" (submit)="handleSubmit()">
+    <section class="flex flex-col gap-4">
+      <p-float-label variant="on">
+        <p-autoComplete inputId="product" formControlName="productId" variant="filled" size="small" optionLabel="title"
+          [invalid]="isInvalid('productId')" [dropdown]="true" [suggestions]="filteredItems()" [forceSelection]="true"
+          (completeMethod)="filterItems($event)" />
+        <label for="product">Products - Force selection</label>
+      </p-float-label>
+      @if (isInvalid('productId')) {
+      <p-message severity="error" size="small" variant="simple">
+        Product is required
+      </p-message>
+      }
+      <p-fluid class="flex gap-4">
+        <p-float-label variant="on">
+          <div class="flex-auto">
+            <p-datepicker inputId="calendar-12h" showIcon formControlName="time12" dateFormat="dd/mm/yyyy" variant="filled"
+              size="small" [showTime]="true" [hourFormat]="'12'" />
+            <label for="calendar-12h" class="font-bold block mb-2"> 12h Format </label>
+          </div>
+        </p-float-label>
+        <p-float-label variant="on">
+          <p-datepicker inputId="calendar-24h" showIcon formControlName="time24" dateFormat="dd/mm/yyyy" variant="filled"
+          size="small" [showTime]="true" [hourFormat]="'24'" />
+          <label for="calendar-24h" class="font-bold block mb-2"> 24h Format </label>
+        </p-float-label>
+      </p-fluid>
+    </section>
+    <p-button type="submit" size="small" label="Submit" />
+  </form>
 </div>
