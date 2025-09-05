@@ -2,9 +2,9 @@
   <article class="h-full w-full flex">
     <app-sidebar [menuItems]="menuItems" />
     <section class="w-full">
-      <p-menubar class="w-full p-0" [baseZIndex]="2000">
-      </p-menubar>
-      <main class="w-full h-full p-4">
+      <main class="w-full h-full">
+        <p-menubar class="w-full p-0" [baseZIndex]="2000">
+        </p-menubar>
         <router-outlet />
       </main>
     </section>
