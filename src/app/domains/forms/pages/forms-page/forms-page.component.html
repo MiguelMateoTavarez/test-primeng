@@ -1,0 +1,12 @@
+<h1 class="text-2xl underline">Autocomplete</h1>
+
+<h2 class="text-xl">Dropdown way</h2>
+
+<div class="card flex justify-center">
+  <p-autoComplete
+    [(ngModel)]="value"
+    [dropdown]="true"
+    [suggestions]="items"
+    (completeMethod)="search($event)"
+  />
+</div>
